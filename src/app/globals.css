@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Sora", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Neutral base — warm off-white, never blue-grey */
+  --color-canvas: #faf9f7;
+  --color-surface: #ffffff;
+  --color-ink: #17161a;
+  --color-ink-soft: #5d5763;
+  --color-line: #eceae4;
+
+  /* ONE bold accent: burnt orange */
+  --color-accent: #f97316;
+  --color-accent-deep: #ea580c;
+  --color-accent-soft: #fff2e6;
+  --color-accent-ink: #7c2d12;
+
+  /* Status colours */
+  --color-success: #10b981;
+  --color-success-soft: #e7f8f1;
+  --color-warn: #f59e0b;
+  --color-warn-soft: #fef4e2;
+  --color-danger: #f5484b;
+  --color-danger-soft: #feecec;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+}
+
+@utility card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.35s ease-out both;
+}
